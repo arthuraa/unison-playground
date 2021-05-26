@@ -1,0 +1,66 @@
+msg name = "Hello, my dear " ++ name ++ "!"
+
+greet : Text -> ()
+greet name = printLine (msg name)
+
+delayedExample : '{IO} ()
+delayedExample = '(greet "Hi!")
+
+map : (a ->{m} b) ->{} [a] ->{m} [b]
+map f xs =
+  match xs with
+    [] -> []
+    x +: xs -> f x +: map f xs
+
+testMap : [Text] ->{IO} [()]
+testMap = map printLine
+
+testPrintLine : () ->{IO} ()
+testPrintLine _ = (printLine "Oi")
+
+testMatch : [Nat] -> [Nat]
+testMatch = cases
+  [] -> []
+  x +: ys -> ys
+
+> testMatch []
+
+last : [a] -> a
+last = cases
+  xs ++ [x] -> x
+
+> last [1,2,3,4]
+
+square : Nat -> Nat
+square x =
+  (x + 0) * x
+
+cube : Nat -> Nat
+cube x =
+  use Nat *
+  square x * x
+
+> cube 29
+
+---- Anything below this line is ignored by Unison.
+
+use .base
+
+> List.map (x -> x * 10) [1,2,3,4,5,6]
+
+square : Nat -> Nat
+square x = x * x
+
+> square 4
+> base.List.reverse [1,3,4,12,4]
+> not true
+> not false
+test> square.tests.ex1 = check (square 4 == 16)
+
+test> square.tests.prop1 =
+  go _ = a = !nat
+         b = !nat
+         expect (square a * square b == square (a * b))
+  runs 100 go
+
+x = 1729

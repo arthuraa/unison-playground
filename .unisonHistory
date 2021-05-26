@@ -1,0 +1,69 @@
+ls
+cd trunk
+view.patch trunk.patch
+reflog
+delete.namespace review
+ls
+delete.namespace review.pr55
+cd .
+history #1fd5tlm9hq
+history merged
+ls
+cd .review.pr55
+history merged
+diff.namespace base squashed
+diff.namespace base squared
+diff.namespace base merged
+pull-request.load git@github.com:unisonweb/base:.trunk git@github.com:ceedubs/unison-dev:.prs.base._genTests
+cd .review.pr55
+.review.pr55> pull-request.load git@github.com:unisonweb/base:.trunk git@github.com:ceedubs/unison-dev:.prs.base._genTests
+cd .
+cd
+cd .review.pr55
+cd .
+ls
+cd .review.pr55.squashed
+cd ..
+cd ../../squashed
+ls
+cd squashed
+cd squashec
+ls
+pull-request.load git@github.com:unisonweb/base:.trunk git@github.com:ceedubs/unison-dev:.prs.base._genTests
+cd .review.pr55
+pull-request.load git@github.com:unisonweb/base:.trunk git@github.com:ceedubs/unison-dev:.prs.base._genTests
+pr.load git@github.com:unisonweb/base:.trunk git@github.com:ceedubs/unison-dev:.prs.base._genTests
+help
+test
+update
+cube 29
+add
+edit square
+cd .
+find
+cd mylibrary
+view x
+cd .
+view x
+x
+zx
+add
+namespace mylibrary
+test
+add
+move.term asdf base.List.foldl
+view asdf
+move.term base.List.foldLeft asdf
+view base.List.foldLeft
+view base.List.foldl
+help
+type base.List.foldl
+base.List.foldl
+move.term base.List.foldl base.List.foldLeft
+find : [a] -> [a]
+find [a] -> [a]
+pull https://github.com/unisonweb/base:.releases._latest base
+square x = x * x
+square : Nat -> Nat
+use .base.List
+pull https://github.com/unisonweb/base:.releases._latest base
